@@ -1,8 +1,7 @@
 CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
 
-# Current status: Two bugs:
-# Can't figure out how to run the TestListExamples class
-# Number of tests in the testing file doesn't seem to matter
+# Current status: Bugs fixed, still need to add more tests to TestListExamples
+# And need to test on other repositories
 
 rm -rf student-submission
 rm -rf grading-area
@@ -28,9 +27,7 @@ then
   exit 1
 fi
 
-#cd grading-area
-java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar:grading-area/TestListExamples.class org.junit.runner.JUnitCore TestListExamples > grading-area/result.txt
-#cd ..
+java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar:./grading-area org.junit.runner.JUnitCore TestListExamples > grading-area/result.txt 2> grading-area/errors.txt
 regexOne='([[:digit:]]+)'
 regexTwo='([[:digit:]]+).*([[:digit:]]+)'
 
@@ -44,5 +41,5 @@ then
 else
   echo "Some tests failed"
   [[ $grepTwo =~ $regexTwo ]]
-  echo "$(( ${BASH_REMATCH[2]} - ${BASH_REMATCH[1]} )) out of ${BASH_REMATCH[2]} tests passed"
+  echo "$(( ${BASH_REMATCH[2]}-${BASH_REMATCH[1]} )) out of ${BASH_REMATCH[2]} tests passed"
 fi
