@@ -1,35 +1,15 @@
 JUnit version 4.13.2
-.E.E.E
-Time: 13.447
-There were 3 failures:
-1) testL1a(TestListExamples)
-java.lang.AssertionError: expected:<[a, b]> but was:<[b, a]>
+...E
+Time: 0.033
+There was 1 failure:
+1) testMergeRightEnd(TestListExamples)
+java.lang.AssertionError: expected:<[a, a, b, c, d]> but was:<[a, b, c, d]>
 	at org.junit.Assert.fail(Assert.java:89)
 	at org.junit.Assert.failNotEquals(Assert.java:835)
 	at org.junit.Assert.assertEquals(Assert.java:120)
 	at org.junit.Assert.assertEquals(Assert.java:146)
-	at TestListExamples.testL1a(TestListExamples.java:32)
-2) testL2a(TestListExamples)
-java.lang.OutOfMemoryError: Java heap space
-	at java.util.Arrays.copyOf(Arrays.java:3210)
-	at java.util.Arrays.copyOf(Arrays.java:3181)
-	at java.util.ArrayList.grow(ArrayList.java:261)
-	at java.util.ArrayList.ensureExplicitCapacity(ArrayList.java:235)
-	at java.util.ArrayList.ensureCapacityInternal(ArrayList.java:227)
-	at java.util.ArrayList.add(ArrayList.java:458)
-	at ListExamples.merge(ListExamples.java:42)
-	at TestListExamples.testL2a(TestListExamples.java:39)
-3) testMergeRightEnd(TestListExamples)
-org.junit.runners.model.TestTimedOutException: test timed out after 500 milliseconds
-	at java.util.Arrays.copyOf(Arrays.java:3210)
-	at java.util.Arrays.copyOf(Arrays.java:3181)
-	at java.util.ArrayList.grow(ArrayList.java:261)
-	at java.util.ArrayList.ensureExplicitCapacity(ArrayList.java:235)
-	at java.util.ArrayList.ensureCapacityInternal(ArrayList.java:227)
-	at java.util.ArrayList.add(ArrayList.java:458)
-	at ListExamples.merge(ListExamples.java:42)
-	at TestListExamples.testMergeRightEnd(TestListExamples.java:23)
+	at TestListExamples.testMergeRightEnd(TestListExamples.java:25)
 
 FAILURES!!!
-Tests run: 3,  Failures: 3
+Tests run: 3,  Failures: 1
 

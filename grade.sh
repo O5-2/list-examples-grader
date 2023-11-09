@@ -41,5 +41,5 @@ then
 else
   echo "Some tests failed"
   [[ $grepTwo =~ $regexTwo ]]
-  echo "$(( ${BASH_REMATCH[2]}-${BASH_REMATCH[1]} )) out of ${BASH_REMATCH[2]} tests passed"
+  echo "$(( ${BASH_REMATCH[1]}-${BASH_REMATCH[2]} )) out of ${BASH_REMATCH[1]} tests passed"
 fi
