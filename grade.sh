@@ -20,7 +20,7 @@ cp student-submission/ListExamples.java grading-area/ListExamples.java
 cp *.java grading-area/
 cp -r lib grading-area/lib
 
-javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar grading-area/*.java
+javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar grading-area/*.java > grading-area/compileResult.txt 2> grading-area/compileErrors.txt
 if [[ $? -ne 0 ]]
 then
   echo "Error during compilation"
