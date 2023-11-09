@@ -1,6 +1,6 @@
 CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
 
-# Current status: Regex isn't working, trying to fix that
+# Current status: No visible bugs, testing on the examples from the lab
 
 rm -rf student-submission
 rm -rf grading-area
@@ -27,14 +27,11 @@ then
 fi
 
 java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore grading-area/TestListExamples > grading-area/result.txt
-regexOne='/(\d+)/'
-regexTwo='/(\d+).*(\d+)/'
+regexOne='([[:digit:]]+)'
+regexTwo='([[:digit:]]+).*([[:digit:]]+)'
 
 grepOne=`grep "OK" grading-area/result.txt`
 grepTwo=`grep "Tests run" grading-area/result.txt`
-echo "GREP TEST"
-echo $grepTwo
-echo "GREP TEST"
 if [[ $grepOne != "" ]]
 then
   echo "Perfect score"
@@ -43,5 +40,5 @@ then
 else
   echo "Some tests failed"
   [[ $grepTwo =~ $regexTwo ]]
-  echo "${BASH_REMATCH[1]} out of ${BASH_REMATCH[2]} tests passed"
+  echo "$(( ${BASH_REMATCH[2]} - ${BASH_REMATCH[1]} )) out of ${BASH_REMATCH[2]} tests passed"
 fi
