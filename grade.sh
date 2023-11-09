@@ -1,6 +1,8 @@
 CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
 
-# Current status: No visible bugs, testing on the examples from the lab
+# Current status: Two bugs:
+# Can't figure out how to run the TestListExamples class
+# Number of tests in the testing file doesn't seem to matter
 
 rm -rf student-submission
 rm -rf grading-area
@@ -26,7 +28,9 @@ then
   exit 1
 fi
 
-java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore grading-area/TestListExamples > grading-area/result.txt
+#cd grading-area
+java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar:grading-area/TestListExamples.class org.junit.runner.JUnitCore TestListExamples > grading-area/result.txt
+#cd ..
 regexOne='([[:digit:]]+)'
 regexTwo='([[:digit:]]+).*([[:digit:]]+)'
 
